@@ -1,5 +1,4 @@
 import { testimonials } from "./testimonials.js";
-const testimonialsContainer = document.querySelector(".testimonials-container");
 var date = new Date();
 let year = date.getFullYear();
 var birthYear = 1989;
@@ -227,48 +226,53 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-const displayTestimonials = function (testimonials) {
-  testimonialsContainer.textContent = "";
-  testimonials.forEach(function (testimonial) {
-    const html = `
-    <div class="card mb-0 p-2 testimonial-card">
-        <div class="card-header">
-          <div class="row">
-            <div class="col-9">
-              <h6 class="card-title person ps-3">
-                ${testimonial.name} - <span class="position">${testimonial.position}</span>: ${testimonial.company}
-              </h6>
-            </div>
-            <div class="col-3">
-              <p class="card-title text-end city">${testimonial.city}</p>
-            </div>
-          </div>
-          <div class="card-body">
-            <p class="card-text testimonial">
-              ${testimonial.testimonial}
-            </p>
-          </div>
-          <div class="card-footer">
+document.addEventListener("DOMContentLoaded", () => {
+  const testimonialsContainer = document.querySelector(
+    ".testimonials-container"
+  );
+
+  const displayTestimonials = function (testimonials) {
+    testimonialsContainer.textContent = "";
+    testimonials.forEach(function (testimonial) {
+      const html = `
+      <div class="card mb-0 p-0 testimonial-card">
+          <div class="card-header p-0 py-2">
             <div class="row">
-              <div class="col-6 d-flex m-auto">
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
-                <i class="fa fa-star checked"></i>
+              <div class="col-md-9 col-sm-8">
+                <h6 class="card-title person ps-3">
+                  ${testimonial.name} - <span class="position">${testimonial.position}</span>: ${testimonial.company}
+                </h6>
               </div>
-              <div class="col-6 d-flex justify-content-end">
-                <a href="${testimonial.website}" class="btn btn-primary"
-                  ><i class="fa fa-link me-2"></i>Visit Site</a
-                >
+              <div class="col-md-3 col-sm-4">
+                <p class="card-title text-end city">${testimonial.city}</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-text testimonial">
+                ${testimonial.testimonial}
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="row d-flex">
+                <div class="col-md-6 col-sm-3 d-flex mt-auto mb-auto">
+                  <i class="fa fa-star checked"></i>
+                  <i class="fa fa-star checked"></i>
+                  <i class="fa fa-star checked"></i>
+                  <i class="fa fa-star checked"></i>
+                  <i class="fa fa-star checked"></i>
+                </div>
+                <div class="col-md-6 col-sm-9 d-flex justify-content-end">
+                  <a href="${testimonial.website}" class="btn btn-primary"
+                    ><i class="fa fa-link me-2"></i>Visit Site</a
+                  >
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    `;
-    testimonialsContainer.insertAdjacentHTML("beforeend", html);
-  });
-};
-displayTestimonials(testimonials);
-
+      `;
+      testimonialsContainer.insertAdjacentHTML("beforeend", html);
+    });
+  };
+  displayTestimonials(testimonials);
+});
