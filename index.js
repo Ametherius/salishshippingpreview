@@ -1,4 +1,4 @@
-import { testimonials } from "/testimonials.js";
+import { testimonials } from "./testimonials.js";
 const testimonialsContainer = document.querySelector(".testimonials-container");
 var date = new Date();
 let year = date.getFullYear();
@@ -271,3 +271,4 @@ const displayTestimonials = function (testimonials) {
   });
 };
 displayTestimonials(testimonials);
+
